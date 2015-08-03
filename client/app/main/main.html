@@ -1,0 +1,33 @@
+<div class="container"> 
+	
+	<!-- Angular ChartJS canvas line chart -->
+	<canvas id="line" class="chart chart-line" data="stockData"
+	  labels="stockRange" legend="false" series="currentCodes"
+	  click="onClick">
+	</canvas>
+	
+	<!-- Display curent stock symbol, and remove function -->
+	<div class="codeBar container">
+		<div class="col-md-4 " ng-repeat="code in currentCodes">
+			<h5 class="codeDisplay">
+				{{code}}
+				<span class="pull-right">
+					<a href="#" ng-click="removeCode(code)"><span class="glyphicon glyphicon-remove"></span></a>
+				</span>
+			</h5>
+
+		</div>
+	</div>
+	
+	<!-- Input stock symbol -->
+	<div class="container">
+		<form class="form-inline" ng-submit="pushCode()">
+			<div class="form-group">
+			    <input type="text" class="form-control"placeholder="Add new stock symbol here" ng-model="newCode">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+	</div>
+	
+</div>
